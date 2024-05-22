@@ -1,3 +1,4 @@
+import random
 rock = '''
     _______
 ---'   ____)
@@ -26,10 +27,9 @@ scissors = '''
 '''
 
 
-import random
-
 game_images = [rock, paper, scissors]
-user_choice = int(input("What do you choose? Type 0 for rock, 1 for paper and 2 for scissors.\n"))
+user_choice = int(
+    input("What do you choose? Type 0 for rock, 1 for paper and 2 for scissors.\n"))
 
 if user_choice >= 3 or user_choice < 0:
     print("You typed and invalid number, you lose!")

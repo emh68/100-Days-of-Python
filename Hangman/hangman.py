@@ -11,6 +11,9 @@ word_length = len(chosen_word)
 
 lives = 6
 
+# Testing code
+# print(f"Pssst, the solution is {chosen_word}.")
+
 # Create blanks
 display = []
 for _ in range(word_length):

@@ -1,4 +1,5 @@
 import random
+import os
 from hangman_words import word_list
 from hangman_art import stages, logo
 
@@ -10,8 +11,6 @@ word_length = len(chosen_word)
 
 lives = 6
 
-print(f'Pssst, the solution is {chosen_word}.')
-
 # Create blanks
 display = []
 for _ in range(word_length):
@@ -19,6 +18,11 @@ for _ in range(word_length):
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
+
+    os.system('cls')
+
+    if guess in display:
+        print(f"You've already guessed {guess}")
 
     # Check guessed letter
     for position in range(word_length):
@@ -31,7 +35,8 @@ while not end_of_game:
     # If lives goes down to 0 then the game should stop and it should print "You lose."
     if guess not in chosen_word:
         lives -= 1
-        print(f"You have {lives} lives left.")
+        print(
+            f"You guessed '{guess}' and that is not in the word.\nYou have {lives} lives left.")
         if lives == 0:
             end_of_game = True
             print("You lose.")
